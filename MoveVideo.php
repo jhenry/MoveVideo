@@ -89,7 +89,7 @@ class MoveVideo extends PluginAbstract
    * get a list of a user's videos to move
    * 
    */
-  public function getVideoList()
+  public static function getVideoList()
   {
 
     $userMapper = new UserMapper();
@@ -103,7 +103,7 @@ class MoveVideo extends PluginAbstract
 
     if($sourceUser) {
       $videoMapper = new VideoMapper();
-      $videos = $videoMapper->getUserVideos($loggedInUser->userId);
+      $videos = $videoMapper->getUserVideos($sourceUser->userId);
     }
     
     return $videos;
